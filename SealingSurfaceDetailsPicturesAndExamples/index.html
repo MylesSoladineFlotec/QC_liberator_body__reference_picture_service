@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Liberator Body Seals</title>
+</head>
+
+<body>
+    <h1 class="title">Liberator Bodies Sealing (Outer Diameter)</h1>
+    <hr>
+
+    <div class="grid-container">
+        <div class="grid-item">
+            <h3>Good Liberator bodies should look like this:</h3>
+            <div class="magnifying-container">
+                <img src="assets/Good Diaphragm Sealing Surface.jpg" alt="Image 3" class="magnifying-image">
+            </div>
+            <p>The thread mill did not cut too deep, leaving a good finish on the outer diameter, and leaving little to no chatter.</p>
+        </div>
+        <div class="grid-item">
+            <h3>Bad Liberator bodies look like this:</h3>
+            <div class="magnifying-container">
+                <img src="assets/Bad Diaphragm Sealing Surface Chatter.jpg" alt="Image 2" class="magnifying-image">
+            </div>
+            <p>There is noticeable chatter on the outer diameter.</p>
+        </div>
+        <div class="grid-item2">
+            
+        </div>
+        <div class="grid-item">
+            <h3>Bad Liberator bodies look like this:</h3>
+            <div class="magnifying-container">
+                <img src="assets/Bad Diaphragm Sealing Surface.jpg" alt="Image 2" class="magnifying-image">
+            </div>
+            <p>There are cuts from the thread mill cutting too deep.</p>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript for the magnifying effect
+        document.querySelectorAll('.magnifying-container').forEach(container => {
+            const img = container.querySelector('.magnifying-image');
+            const magnifier = document.createElement('div');
+            magnifier.classList.add('magnifier');
+            container.appendChild(magnifier);
+
+            // Show magnifier on mouse enter
+            container.addEventListener('mouseenter', () => {
+                magnifier.style.display = 'block';
+            });
+
+            // Hide magnifier on mouse leave
+            container.addEventListener('mouseleave', () => {
+                magnifier.style.display = 'none';
+            });
+
+            // Update magnifier position and background on mouse move
+            container.addEventListener('mousemove', (e) => {
+                const rect = container.getBoundingClientRect();
+                const x = e.clientX - rect.left; // Mouse x position relative to container
+                const y = e.clientY - rect.top; // Mouse y position relative to container
+
+                // Get the actual rendered dimensions of the image
+                const imgWidth = img.offsetWidth;
+                const imgHeight = img.offsetHeight;
+
+                const width = magnifier.offsetWidth / 2; // Half the width of the magnifier
+                const height = magnifier.offsetHeight / 2; // Half the height of the magnifier
+
+                // Position the magnifier
+                magnifier.style.left = `${x - width}px`;
+                magnifier.style.top = `${y - height}px`;
+
+                // Calculate the background position to reflect the zoom effect
+                // Here we calculate how much the mouse is offset from the top-left corner of the image
+                const bgPosX = (x / imgWidth) * 100; // Percentage of the image width
+                const bgPosY = (y / imgHeight) * 100; // Percentage of the image height
+
+                // Set the magnifier's background image and size
+                magnifier.style.backgroundImage = `url(${img.src})`;
+                magnifier.style.backgroundSize = `${imgWidth * 2}px ${imgHeight * 2}px`; // 2x zoom
+                magnifier.style.backgroundPosition = `${bgPosX}% ${bgPosY}%`; // Update background position
+            });
+        });
+
+
+    </script>
+
+
+</body>
+
+</html>

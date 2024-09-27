@@ -1,0 +1,95 @@
+/* Container for the grid layout */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two equal-width columns */
+    grid-gap: 20px;
+    padding: 20px;
+    max-width: 1200px; /* Limit the overall width for better readability */
+    margin: 0 auto; /* Center the container */
+}
+
+/* Styling for each grid item */
+.grid-item {
+    text-align: center;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    padding: 10px; /* Add padding inside grid items for better spacing */
+    background-color: #f9f9f9; /* Light background to make the images stand out */
+    border-radius: 8px; /* Slightly round the corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Image styling */
+.grid-item img {
+    width: 100%; /* Make the image responsive */
+    height: auto;
+    margin: 10px 0;
+    border-radius: 4px; /* Slightly round the image corners */
+    transition: transform 0.2s ease-in-out; /* Smooth transition effect */
+}
+
+
+/* Headings (h3) styling */
+.grid-item h3 {
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: #333; /* Slightly darker text color for better readability */
+}
+
+/* Paragraph styling */
+.grid-item p {
+    margin-top: 5px;
+    font-size: 16px; /* Adjusted for readability */
+    color: #555; /* Softer color for body text */
+    line-height: 1.6; /* Improved line spacing for better readability */
+}
+
+/* Body styling */
+body {
+    font-family: 'Segoe UI', Roboto, 'Open Sans', sans-serif;
+    background-color: #f4f4f4; /* Light grey background */
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* Title styling */
+h1.title {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 36px;
+    color: #222;
+}
+
+/* Horizontal rule styling */
+hr {
+    margin-bottom: 30px;
+    border: 1px solid #ddd;
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+
+/* Magnifier styles */
+.magnifying-container {
+    position: relative; /* Allows absolute positioning of the magnifier */
+    overflow: hidden; /* Prevents magnifier from overflowing */
+}
+
+.magnifying-image {
+    width: 100%; /* Ensure the image is responsive */
+    height: auto;
+}
+
+.magnifier {
+    position: absolute;
+    border: 3px solid #000; /* Black border for the magnifier */
+    cursor: none; /* Hide the cursor */
+    width: 150px; /* Diameter of the magnifier */
+    height: 100px; /* Diameter of the magnifier */
+    pointer-events: none; /* Prevent interaction with the magnifier */
+    display: none; /* Initially hidden */
+    background-repeat: no-repeat; /* Ensure no repeating background */
+    background-size: 200% 200%; /* Scale background for the magnification */
+    z-index: 10; /* Ensure magnifier is on top */
+}
